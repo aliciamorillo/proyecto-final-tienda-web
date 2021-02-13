@@ -73,13 +73,21 @@
 			</ul>
 		</div>
 		
-		<a name="#Animacion"></a>
+		<!-- <a name="#Animacion"></a> -->
 		
-		<div id="animacion" class="grid-container">
+		<!-- <div id="animacion" class="grid-container"> -->
 		
 		<a href="#" id="js_up" class="boton-subir">
 		  <i class="fas fa-arrow-circle-up"></i>
 		</a>
+		
+		<table border="0" width="800" height="50px" align="center" style="margin-bottom:100px">
+			<tr bgcolor="skyblue">
+				<th><a href="consultarVentas.jsp">Consultar Ventas</a>
+				<th><a href="LoginServlet?accion=cerrar">Cerrar Sesion</a>
+				<th width="200">Iniciar Sesion</th>
+			</tr>
+		</table>
 			
 			<div class="grid-item">
 			
@@ -123,7 +131,7 @@
 	<!-- Pie de pagina -->
    	<%@include file="/WEB-INF/include/footer.jsp" %>
         
-	</div>
+	<!-- </div> -->
 	
 	</body>
 	
