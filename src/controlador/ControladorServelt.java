@@ -38,6 +38,7 @@ public class ControladorServelt extends HttpServlet {
 		String accion = request.getParameter("accion");
 		
 		if (accion.equals("AddCarrito")) {
+			System.out.println("LLEGUE AL SERVLET");
 			this.addCarrito(request,response);
 		}
 		
@@ -56,7 +57,8 @@ public class ControladorServelt extends HttpServlet {
 			carrito = (ArrayList<DetalleVenta>) sesion.getAttribute("carrito");
 		}
 		
-		Producto producto = ProductoBD.obtenerProducto(Integer.parseInt(request.getParameter("id")));
+		Producto producto = ProductoBD.obtenerProducto(Integer.parseInt(request.getParameter("txtCodigo")));
+		
 		DetalleVenta detalleVenta = new DetalleVenta();
 		
 		detalleVenta.setCodigoProducto(Integer.parseInt(request.getParameter("txtCodigo")));
@@ -85,7 +87,8 @@ public class ControladorServelt extends HttpServlet {
 		}
 		
 		sesion.setAttribute("carrito", carrito);
-		response.sendRedirect("registrarVenta.jsp");
+//		response.sendRedirect("registrarVenta.jsp");
+		request.getRequestDispatcher("registrarVenta.jsp").forward(request, response);
 		
 	}
 

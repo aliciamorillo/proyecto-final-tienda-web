@@ -7,17 +7,14 @@ import utilidades.ConexionBD;
 
 public class ProductoBD {
 	
-	static Connection conexion = ConexionBD.getConexion();
-	static CallableStatement callablestatement = null;
-	static ResultSet resultset = null;
 	
 	public static ArrayList<Producto> obtenerProducto(){
 		ArrayList<Producto> lista = new ArrayList<Producto>();
 		
 
 		try {
-			callablestatement = conexion.prepareCall("{CALL listarProducto()}");
-			resultset = callablestatement.executeQuery();
+			CallableStatement callablestatement = ConexionBD.getConexion().prepareCall("{CALL listarProducto()}");
+			ResultSet resultset = callablestatement.executeQuery();
 			
 			while(resultset.next()){
 				Producto producto = new Producto(resultset.getInt(1), resultset.getString(2), resultset.getString(3), resultset.getDouble(4), resultset.getString(5));
@@ -36,9 +33,9 @@ public class ProductoBD {
 		Producto producto = null;
 		
 		try {
-			callablestatement = conexion.prepareCall("{CALL sp_ProductoCod(?)}");
+			CallableStatement callablestatement = ConexionBD.getConexion().prepareCall("{CALL sp_ProductoCod(?)}");
 			callablestatement.setInt(1, codigo);
-			resultset = callablestatement.executeQuery();
+			ResultSet resultset = callablestatement.executeQuery();
 			
 			while(resultset.next()){
 				producto = new Producto(resultset.getInt(1), resultset.getString(2), resultset.getString(3), resultset.getDouble(4), resultset.getString(5));

@@ -108,7 +108,7 @@
 						<p><%=producto.getPrecio()%> €</p>
 							
 						<button class="btn btn-outline-primary" data-toggle="tooltip" title="AÑADIR AL CARRITO" 
-									onclick="window.location.href='addCarrito.jsp?id=<%producto.getCodigoProducto();%>'"
+									onclick="window.location.href='addCarrito.jsp?id=<%=producto.getCodigoProducto()%>'"
 									style="margin: 30px 30px 30px;">COMPRAR</button>
 					</th>
 				<%	

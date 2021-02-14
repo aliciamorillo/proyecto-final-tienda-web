@@ -66,9 +66,9 @@
 						<th><%= total %></th>
 					</tr>
 					<tr>
-						<td colspan="5">
+						<th colspan="5">
 							<input type="submit" value="Registrar Venta" name="btVenta"/>
-						</td>
+						</th>
 					</tr>
 				
 			</table>
