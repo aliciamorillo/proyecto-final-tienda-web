@@ -100,18 +100,17 @@
 					Producto producto = lista.get(i);
 				
 				%>
-				<tr>
-					<td>
+					<th>
 						<img class="compraFunko imagen" src="<%=producto.getImagen()%>"/>
-					</td>
-			
-					<td><%=producto.getNombreFunko()%></td>
-						
-					<td><%=producto.getPrecio()%> €</td>
-						
-					<td><button class="btn btn-outline-primary" data-toggle="tooltip" title="AÑADIR AL CARRITO" 
-								onclick="">COMPRAR</button></td>
-				</tr>
+												
+						<p><%=producto.getNombreFunko()%></p>
+							
+						<p><%=producto.getPrecio()%> €</p>
+							
+						<button class="btn btn-outline-primary" data-toggle="tooltip" title="AÑADIR AL CARRITO" 
+									onclick="window.location.href='addCarrito.jsp?id=<%producto.getCodigoProducto();%>'"
+									style="margin: 30px 30px 30px;">COMPRAR</button>
+					</th>
 				<%	
 					salto++;
 				
@@ -122,7 +121,7 @@
 						salto = 0;
 					}
 				}
-				 %>
+				%>
 			
 			</table>
 		

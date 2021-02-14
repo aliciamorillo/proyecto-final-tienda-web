@@ -6,6 +6,7 @@ public class DetalleVenta {
 	private int codigoProducto;
 	private double precio;
 	private double descuento;
+	private double cantidad;
 	private Producto producto;
 	private Venta venta;
 	
@@ -20,6 +21,9 @@ public class DetalleVenta {
 		this.producto = producto;
 		this.venta = venta;
 	}
+
+
+	public DetalleVenta() {}
 
 
 	public int getCodigoVenta() {
@@ -80,8 +84,16 @@ public class DetalleVenta {
 	public void setVenta(Venta venta) {
 		this.venta = venta;
 	}
+
+
+	public void setCantidad(double cantidad) {
+		this.cantidad = cantidad;
+	}
 	
 	
+	public double getCantidad() {
+		return cantidad;
+	}
 	
 
 }

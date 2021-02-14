@@ -1,15 +1,17 @@
 package controlador;
 
 import java.io.IOException;
-
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import modelo.*;
+import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
 
-import otros.ICestaCompra;
 
 
 @WebServlet("/CompraServelt")
@@ -33,26 +35,57 @@ public class ControladorServelt extends HttpServlet {
 	private void procesarPeticion(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		HttpSession tuSesion = request.getSession();
-        
-        ICestaCompra carro = (ICestaCompra) tuSesion.getAttribute("carro");
-        
-        String operacion = request.getParameter("operacion");
-        
-        switch(operacion) {
-        
-        	case "agregarArticulo":
-        		String articuloAgregar = request.getParameter("nombre");
-                System.out.println("ARTICULO A INTRODUCIR EN EL CARRO: " + articuloAgregar);
-                String seccionOrigen = request.getParameter("seccion");
-                System.out.println("SECCION DESDE LA QUE SE SOLICITO AGREGAR: " + seccionOrigen);                
-                carro.agregar(articuloAgregar);  
-                response.sendRedirect(seccionOrigen.toLowerCase() + ".jsp?mensaje=" + 
-                                        "SE HA AGREGADO EL ARTICULO ... " + articuloAgregar + " AL CARRO.");
-        	return;
-        	
-        
-        }
+		String accion = request.getParameter("accion");
+		
+		if (accion.equals("AddCarrito")) {
+			this.addCarrito(request,response);
+		}
+		
+	}
+
+	private void addCarrito(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException{
+				
+		HttpSession sesion = request.getSession();
+		ArrayList<DetalleVenta> carrito;
+		
+		if (sesion.getAttribute("carrito") == null) {
+			carrito = new ArrayList<DetalleVenta>();
+		
+		} else {
+			carrito = (ArrayList<DetalleVenta>) sesion.getAttribute("carrito");
+		}
+		
+		Producto producto = ProductoBD.obtenerProducto(Integer.parseInt(request.getParameter("id")));
+		DetalleVenta detalleVenta = new DetalleVenta();
+		
+		detalleVenta.setCodigoProducto(Integer.parseInt(request.getParameter("txtCodigo")));
+		detalleVenta.setProducto(producto);
+		
+		detalleVenta.setCantidad(Double.parseDouble(request.getParameter("txtCantidad")));
+		double subTotal = producto.getPrecio() * detalleVenta.getCantidad();
+	
+		if (subTotal > 50) {
+			detalleVenta.setDescuento(subTotal * 0.05);
+		} else {
+			detalleVenta.setDescuento(0);
+		}
+		
+		int indice = -1;
+		for (int i = 0; i < carrito.size(); i++) {
+			DetalleVenta detalle = carrito.get(i);
+			if (detalle.getCodigoProducto() == producto.getCodigoProducto()) {
+				indice = i;
+				break;
+			}
+		}
+		
+		if (indice == -1) {
+			carrito.add(detalleVenta);
+		}
+		
+		sesion.setAttribute("carrito", carrito);
+		response.sendRedirect("registrarVenta.jsp");
 		
 	}
 
