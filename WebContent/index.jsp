@@ -8,7 +8,7 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>MASTER JAVA</title>
+		<title>TIENDA ONLINE - FUNKOS</title>
 		
 		<link rel="stylesheet" type="text/css" href="estilos/estilos.css"/>
 		
