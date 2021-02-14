@@ -87,9 +87,7 @@ public class ControladorServelt extends HttpServlet {
 		}
 		
 		sesion.setAttribute("carrito", carrito);
-//		response.sendRedirect("registrarVenta.jsp");
-		request.getRequestDispatcher("registrarVenta.jsp").forward(request, response);
-		
+		response.sendRedirect("registrarVenta.jsp");		
 	}
 
 }
