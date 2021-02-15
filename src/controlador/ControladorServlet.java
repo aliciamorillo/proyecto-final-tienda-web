@@ -1,7 +1,6 @@
 package controlador;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,36 +8,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.*;
+import modelo.DetalleVenta;
 import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
 
 
 
-@WebServlet("/CompraServelt")
-public class ControladorServelt extends HttpServlet {
+@WebServlet(name = "/ControladorServlet", urlPatterns = {"/ControladorServlet"})
+public class ControladorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        procesarPeticion(request, response);
+		processRequest(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        procesarPeticion(request, response);
+    	processRequest(request, response);
     }
     
     //------
 
-	private void procesarPeticion(HttpServletRequest request, HttpServletResponse response) 
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		
+		    	
 		String accion = request.getParameter("accion");
 		
 		if (accion.equals("AddCarrito")) {
-			System.out.println("LLEGUE AL SERVLET");
 			this.addCarrito(request,response);
 		}
 		
@@ -63,8 +62,8 @@ public class ControladorServelt extends HttpServlet {
 		
 		detalleVenta.setCodigoProducto(Integer.parseInt(request.getParameter("txtCodigo")));
 		detalleVenta.setProducto(producto);
-		
 		detalleVenta.setCantidad(Double.parseDouble(request.getParameter("txtCantidad")));
+		
 		double subTotal = producto.getPrecio() * detalleVenta.getCantidad();
 	
 		if (subTotal > 50) {

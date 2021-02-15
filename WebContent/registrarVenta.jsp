@@ -22,20 +22,26 @@
 		
 		<table border="0" width="800" height="50px" align="center" style="margin-bottom:100px">
 			<tr bgcolor="skyblue">
+				<th><a href="index.jsp">Catalogo</a></th>
 				<th><a href="consultarVentas.jsp">Consultar Ventas</a>
 				<th><a href="LoginServlet?accion=cerrar">Cerrar Sesion</a>
 				<th width="200">Iniciar Sesion</th>
 			</tr>
 		</table>
 		
+		<h2 align="center">CARRITO DE LA COMPRA</h2>
+		
 		<form method="POST" action="ControladorServlet">
 		
 			<input type="hidden" name="accion" value="RegistrarVenta"/>
 			
-			<table border="1" align="center" width="400">
-			
+			<table border="1" align="center" width="500">
+				<tr>
+					<th>Cliente</th>
+					<th colspan="4"><input type="text" name="txtCliente" value="Nombre"/></th>
+				</tr>
 				<tr style="background-color: skyblue; color: black; font-weight: bold;">
-					<td>Nombre</td>
+					<td width="180">Nombre</td>
 					<td>Precio</td>
 					<td>Cantidad</td>
 					<td>Descuento</td>
@@ -48,22 +54,23 @@
 						
 						if(lista != null){
 							for(DetalleVenta detalle : lista){
-				%>	
-					<tr>
-						<td><%= detalle.getProducto().getNombreFunko() %></td>
-						<td><%= detalle.getProducto().getPrecio() %></td>
-						<td><%= detalle.getCantidad() %></td>
-						<td><%= detalle.getDescuento() %></td>
-						<td><%= (detalle.getProducto().getPrecio() * detalle.getCantidad()) - detalle.getDescuento() %></td>
-					</tr>
-				<% 
-					total = total + (detalle.getProducto().getPrecio() * detalle.getCantidad()) - detalle.getDescuento();
+							%>	
+								<tr>
+									<td><%= detalle.getProducto().getNombreFunko() %></td>
+									<td><%= detalle.getProducto().getPrecio() %></td>
+									<td><%= detalle.getCantidad() %></td>
+									<td><%= String.format("%.2f", detalle.getDescuento()) %></td>
+									<td><%= String.format("%.2f", (detalle.getProducto().getPrecio() * detalle.getCantidad()) - detalle.getDescuento()) %></td>
+								</tr>
+							<% 
+							
+							total = total + (detalle.getProducto().getPrecio() * detalle.getCantidad()) - detalle.getDescuento();
 							}
 						}
 				%>	
 					<tr>
 						<th colspan="4" align="right">Total</th>
-						<th><%= total %></th>
+						<th><%= String.format("%.2f", total) %></th>
 					</tr>
 					<tr>
 						<th colspan="5">

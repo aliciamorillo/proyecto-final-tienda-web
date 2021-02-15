@@ -4,19 +4,18 @@ public class DetalleVenta {
 	
 	private int codigoVenta;
 	private int codigoProducto;
-	private double precio;
-	private double descuento;
 	private double cantidad;
+	private double descuento;
 	private Producto producto;
 	private Venta venta;
 	
 	
-	public DetalleVenta(int codigoVenta, int codigoProducto, double precio,
+	public DetalleVenta(int codigoVenta, int codigoProducto, double cantidad,
 			double descuento, Producto producto, Venta venta) {
 		super();
 		this.codigoVenta = codigoVenta;
 		this.codigoProducto = codigoProducto;
-		this.precio = precio;
+		this.cantidad = cantidad;
 		this.descuento = descuento;
 		this.producto = producto;
 		this.venta = venta;
@@ -45,17 +44,7 @@ public class DetalleVenta {
 		this.codigoProducto = codigoProducto;
 	}
 
-
-	public double getPrecio() {
-		return precio;
-	}
-
-
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
-
-
+	
 	public double getDescuento() {
 		return descuento;
 	}

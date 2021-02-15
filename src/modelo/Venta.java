@@ -11,11 +11,12 @@ public class Venta {
 	
 	
 	public Venta(int codigoVenta, String cliente, Timestamp fecha) {
-		super();
 		this.codigoVenta = codigoVenta;
 		this.cliente = cliente;
 		this.fecha = fecha;
 	}
+	
+	public Venta(){}
 
 
 	public int getCodigoVenta() {

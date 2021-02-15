@@ -10,11 +10,11 @@ public class Producto {
 	
 	
 	//CONSTRUCTOR:
-	public Producto(int codigoProducto, String nombre, String seccion,
+	public Producto(int codigoProducto, String nombreFunko, String seccion,
 			double precio, String imagen) {
 		super();
 		this.codigoProducto = codigoProducto;
-		this.nombreFunko = nombre;
+		this.nombreFunko = nombreFunko;
 		this.seccion = seccion;
 		this.precio = precio;
 		this.imagen = imagen;
