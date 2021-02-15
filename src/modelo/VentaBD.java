@@ -24,6 +24,17 @@ public class VentaBD {
 			int i2 = 0;
 			venta.setCodigoVenta(callablestatement.getInt(1));
 			
+			CallableStatement callablestatement2 = conexion.prepareCall("{call sp_RegistrarVenta(?,?,?,?)}");
+			
+			for(DetalleVenta aux : detalleVenta){
+				callablestatement2.setInt(1, venta.getCodigoVenta());
+				callablestatement2.setInt(2, aux.getCodigoProducto());
+				callablestatement2.setDouble(3, aux.getCantidad());
+				callablestatement2.setDouble(4, aux.getDescuento());
+				
+				i2 = callablestatement2.executeUpdate();
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

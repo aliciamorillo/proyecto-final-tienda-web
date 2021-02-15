@@ -11,6 +11,10 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>TIENDA ONLINE - FUNKOS</title>
+		
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+				rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+				
 	</head>
 	
 	<body>
@@ -35,7 +39,7 @@
 		
 			<input type="hidden" name="accion" value="RegistrarVenta"/>
 			
-			<table border="1" align="center" width="500">
+			<table border="1" class="table table-striped">
 				<tr>
 					<th>Cliente</th>
 					<th colspan="4"><input type="text" name="txtCliente" value="Nombre"/></th>
@@ -79,6 +83,8 @@
 					</tr>
 				
 			</table>
+			
+				<input type="hidden" name="total" value="<%=total%>"/>
 		
 		</form>
 		

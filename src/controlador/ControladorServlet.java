@@ -39,10 +39,36 @@ public class ControladorServlet extends HttpServlet {
 		
 		if (accion.equals("AddCarrito")) {
 			this.addCarrito(request,response);
+		} else if (accion.equals("RegistrarVenta")) {
+			this.registrarVenta(request,response);
 		}
 		
 	}
 
+    //-- METODOS --//
+    
+	private void registrarVenta(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException{
+
+		HttpSession sesion = request.getSession();
+		Venta venta = new Venta();
+		
+		venta.setCliente(request.getParameter("txtCliente").toUpperCase());
+		ArrayList<DetalleVenta> detalle = (ArrayList<DetalleVenta>)sesion.getAttribute("carrito");
+		
+		double total = Double.parseDouble(request.getParameter("total"));
+		
+		boolean respuesta = VentaBD.insertarVenta(venta, detalle);
+		if (respuesta) {
+			request.getSession().removeAttribute("carrito");
+			response.sendRedirect("formularioPago.jsp?total=" + total);
+		
+		} else {
+			response.sendRedirect("mensaje.jsp?men=Error Venta no Registrada");
+		} 
+	}
+
+	
 	private void addCarrito(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
 				
