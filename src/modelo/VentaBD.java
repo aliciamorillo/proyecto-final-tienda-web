@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import utilidades.ConexionBD;
 
+////---
 
 public class VentaBD {
 
