@@ -1,6 +1,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.ArrayList,modelo.*" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="modelo.*" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@page session="true"%>
+
+<%
+    String usu="";
+    String nom="";
+    HttpSession sesionOK=request.getSession();
+    
+	if(sesionOK.getAttribute("perfil")!=null) {
+	    nom=(String)sesionOK.getAttribute("nom");
+	}
+%>
 
 <!DOCTYPE HTML>
 
@@ -81,11 +94,18 @@
 		  <i class="fas fa-arrow-circle-up"></i>
 		</a>
 		
-		<table border="0" width="800" height="50px" align="center" style="margin-bottom:100px">
+		<table border="0" width="800" height="50px" align="center" style="margin-bottom:60px">
 			<tr bgcolor="skyblue">
 				<th><a href="consultarVentas.jsp">Consultar Ventas</a>
 				<th><a href="LoginServlet?accion=cerrar">Cerrar Sesion</a>
-				<th width="200">Iniciar Sesion</th>
+				<%if(sesionOK.getAttribute("perfil") != null){
+					%><th width="200"><%out.println("Bienvenido: " + nom); %>
+				</th>
+				<%
+				}
+				%>
+					
+				<th width="200"><a href="login.jsp">Iniciar Sesion</a></th>
 			</tr>
 		</table>
 			

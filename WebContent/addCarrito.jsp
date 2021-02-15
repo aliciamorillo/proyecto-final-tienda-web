@@ -28,7 +28,7 @@
 		
 		<h1>ÚLTIMAS NOVEDADES EN MUÑECOS POP Y OTROS PRODUCTOS FUNKO</h1>
 		
-		<table border="0" width="800" height="50px" align="center" style="margin-bottom:100px">
+		<table border="0" width="800" height="50px" align="center" style="margin-bottom:60px">
 			<tr bgcolor="skyblue">
 				<th><a href="index.jsp">Catalogo</a></th>
 				<th><a href="consultarVentas.jsp">Consultar Ventas</a>
