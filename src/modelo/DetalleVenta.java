@@ -10,6 +10,15 @@ public class DetalleVenta {
 	private Venta venta;
 	
 	
+	public DetalleVenta(int codigoVenta, int codigoProducto, 
+            double cantidad, double descuento){
+        this.codigoVenta = codigoVenta;
+        this.codigoProducto = codigoProducto;
+        this.cantidad = cantidad;
+        this.descuento = descuento;
+	}
+	
+	
 	public DetalleVenta(int codigoVenta, int codigoProducto, double cantidad,
 			double descuento, Producto producto, Venta venta) {
 		super();

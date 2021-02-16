@@ -13,8 +13,16 @@ if(sesionOK.getAttribute("perfil")!=null)
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>TIENDA ONLINE - FUNKOS</title>
+        
+        <link rel="stylesheet" href="estilos/bootstrap.min.css">
+		<link rel="stylesheet" href="estilos/nuevosEstilos.css">
+		<link rel="stylesheet" href="estilos/owl.carousel.css">
+		
     </head>
-    <body><table border="0" width="1000" align="center">
+    
+    <body>
+    
+    <table border="0" width="1000" align="center">
             <tr bgcolor="skyblue">
                 <th><a href="index.jsp">Catálogo</a></th>
                 <%

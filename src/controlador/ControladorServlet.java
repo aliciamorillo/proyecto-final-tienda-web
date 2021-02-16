@@ -39,6 +39,7 @@ public class ControladorServlet extends HttpServlet {
 		
 		if (accion.equals("AddCarrito")) {
 			this.addCarrito(request,response);
+			
 		} else if (accion.equals("RegistrarVenta")) {
 			this.registrarVenta(request,response);
 		}
@@ -56,9 +57,10 @@ public class ControladorServlet extends HttpServlet {
 		venta.setCliente(request.getParameter("txtCliente").toUpperCase());
 		ArrayList<DetalleVenta> detalle = (ArrayList<DetalleVenta>)sesion.getAttribute("carrito");
 		
+		boolean respuesta = VentaBD.insertarVenta(venta, detalle);
+		
 		double total = Double.parseDouble(request.getParameter("total"));
 		
-		boolean respuesta = VentaBD.insertarVenta(venta, detalle);
 		if (respuesta) {
 			request.getSession().removeAttribute("carrito");
 			response.sendRedirect("formularioPago.jsp?total=" + total);

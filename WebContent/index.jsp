@@ -6,12 +6,11 @@
 <%@page session="true"%>
 
 <%
-    String usu="";
-    String nom="";
+    String nombreUsuario="";
     HttpSession sesionOK=request.getSession();
     
 	if(sesionOK.getAttribute("perfil")!=null) {
-	    nom=(String)sesionOK.getAttribute("nom");
+		nombreUsuario=(String)sesionOK.getAttribute("nombreUsuario");
 	}
 %>
 
@@ -31,6 +30,13 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
 				integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	
+		<link rel="stylesheet" href="estilos/bootstrap.min.css">
+		<link rel="stylesheet" href="estilos/nuevosEstilos.css">
+		<link rel="stylesheet" href="estilos/owl.carousel.css">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/flaticon.css"> 
+
 		<script type="text/javascript" src="js/javascript.js"></script>
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -70,7 +76,7 @@
 		<nav style="margin-left: 900px;">
 			<jsp:include page="cabecera/carro.jsp"/>
 			&nbsp;&nbsp;&nbsp;
-			<jsp:include page="cabecera/login.jsp"/>
+			<jsp:include page="cabecera/loginIcon.jsp"/>
 		</nav>
 		
 		<br/><br/>
@@ -95,19 +101,47 @@
 		</a>
 		
 		<table border="0" width="800" height="50px" align="center" style="margin-bottom:60px">
-			<tr bgcolor="skyblue">
-				<th><a href="consultarVentas.jsp">Consultar Ventas</a>
-				<th><a href="LoginServlet?accion=cerrar">Cerrar Sesion</a>
-				<%if(sesionOK.getAttribute("perfil") != null){
-					%><th width="200"><%out.println("Bienvenido: " + nom); %>
-				</th>
-				<%
-				}
-				%>
-					
-				<th width="200"><a href="login.jsp">Iniciar Sesion</a></th>
-			</tr>
-		</table>
+      		
+      		<tr bgcolor="skyblue">
+      		
+	      		<th>
+	       			<td><a href="index.jsp">Catálogo</a></td>
+	       			 <%
+	                    if(sesionOK.getAttribute("perfil")!=null && sesionOK.getAttribute("perfil").equals("Admin")){
+	                 %>
+	        		
+	        		<td><a href="registrarProducto.jsp">Registrar Producto</a></td>
+	                <%
+	                    }
+	                        if(sesionOK.getAttribute("perfil")!=null){
+	                    %>
+	                
+	                <td><a href="registrarVenta.jsp">Registrar ventas</a></td>
+	                <%
+	                    }
+	                        if(sesionOK.getAttribute("perfil")!=null && sesionOK.getAttribute("perfil").equals("Admin")){
+	                    %>
+	                
+	                <td><a href="ServletControlador?accion=MostrarVentas">Consultar Ventas</a></td>
+	                <%
+	                    }
+	%>
+	                <%if(sesionOK.getAttribute("perfil")!=null){
+	                    %>
+	                
+	                <td><a href="ServletLogueo?accion=cerrar">Cerrar Sesión</a></td>
+	                <%
+	                    }
+	                    %>
+	      		</th>  
+	      		    
+	      		<th class="nav navbar-nav navbar-right">
+	                <td><a href="login.jsp">Iniciar Sesion</a></td>
+	      		</th>
+      		
+      		<tr>
+    
+    	</table>
 			
 			<div class="grid-item">
 			

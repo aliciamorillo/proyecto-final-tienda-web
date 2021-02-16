@@ -6,6 +6,11 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>TIENDA ONLINE - FUNKOS</title>
+		
+		<link rel="stylesheet" href="estilos/bootstrap.min.css">
+		<link rel="stylesheet" href="estilos/nuevosEstilos.css">
+		<link rel="stylesheet" href="estilos/owl.carousel.css">
+		
 	</head>
 	
 	<body>

@@ -17,6 +17,10 @@
 		
 		<link rel="stylesheet" type="text/css" href="estilos/estilos.css"/>
 		
+		<link rel="stylesheet" href="estilos/bootstrap.min.css">
+		<link rel="stylesheet" href="estilos/nuevosEstilos.css">
+		<link rel="stylesheet" href="estilos/owl.carousel.css">
+		
 	</head>
 	
 	<body>
@@ -33,7 +37,6 @@
 				<th><a href="index.jsp">Catalogo</a></th>
 				<th><a href="consultarVentas.jsp">Consultar Ventas</a>
 				<th><a href="LoginServlet?accion=cerrar">Cerrar Sesion</a>
-				<th width="200">Iniciar Sesion</th>
 			</tr>
 		</table>
 		

@@ -11,20 +11,20 @@ public class VentaBD {
 	public static boolean insertarVenta(Venta venta, ArrayList<DetalleVenta>detalleVenta){
 		
 		boolean respuesta = false;
-		
+		//Query: INSERT INTO ventas VALUES(?,?)
 		try {
 			Connection conexion = ConexionBD.getConexion();
-			CallableStatement callablestatement = conexion.prepareCall("{call sp_RegistrarVenta(?,?)}");
+			CallableStatement callablestatement = conexion.prepareCall("");
 			
 			callablestatement.registerOutParameter(1, Types.INTEGER);
 			callablestatement.setString(2, venta.getCliente());
 			
 			int i = callablestatement.executeUpdate();
 			
-			int i2 = 0;
+/*			int i2 = 0;
 			venta.setCodigoVenta(callablestatement.getInt(1));
 			
-			CallableStatement callablestatement2 = conexion.prepareCall("{call sp_RegistrarVenta(?,?,?,?)}");
+			CallableStatement callablestatement2 = conexion.prepareCall("INSERT INTO ventas VALUES(?,?,?)");
 			
 			for(DetalleVenta aux : detalleVenta){
 				callablestatement2.setInt(1, venta.getCodigoVenta());
@@ -33,7 +33,7 @@ public class VentaBD {
 				callablestatement2.setDouble(4, aux.getDescuento());
 				
 				i2 = callablestatement2.executeUpdate();
-			}
+			}*/
 			
 		} catch (Exception e) {
 			e.printStackTrace();

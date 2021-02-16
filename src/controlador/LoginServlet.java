@@ -54,11 +54,20 @@ public class LoginServlet extends HttpServlet {
             }else{
                 request.setAttribute("msg", "Error de Usuario o Password");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
-            
-            
             }
+
         }catch(Exception e){System.out.print(e);}
         
+		} else if (accion.equals("cerrar")) {
+			HttpSession sesionOK = request.getSession();
+		
+			request.getSession().removeAttribute("perfil");
+			request.getSession().removeAttribute("nombreUsuario");
+			request.getSession().removeAttribute("pass");
+			
+			sesionOK.invalidate();
+			
+            request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 
 	}

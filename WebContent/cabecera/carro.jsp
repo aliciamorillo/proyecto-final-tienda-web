@@ -11,10 +11,10 @@
 	<body>
 
 		<img src="imagenes/cesta.jpg" width="75" title="FINALIZAR COMPRA"
-                onclick="window.location.href='lineaCajas.jsp';"/>
+                onclick=";"/>
 
 		<span style="color:blueviolet; font-size:25px; font-weight:bold">
-		    ${sessionScope.carro.cuantosArticulos()} 0 Articulos
+		    ${sessionScope.carro.} 
 		</span>
 		
 	</body>

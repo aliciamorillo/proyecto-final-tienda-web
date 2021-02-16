@@ -12,13 +12,25 @@ public class Producto {
 	//CONSTRUCTOR:
 	public Producto(int codigoProducto, String nombreFunko, String seccion,
 			double precio, String imagen) {
-		super();
 		this.codigoProducto = codigoProducto;
 		this.nombreFunko = nombreFunko;
 		this.seccion = seccion;
 		this.precio = precio;
 		this.imagen = imagen;
 	}
+	
+	public Producto( String nombreFunko, 
+            double precio, String imagen) {
+        this.nombreFunko = nombreFunko;
+        this.precio = precio;
+        this.imagen = imagen;
+    }
+    
+    public Producto(int codigoProducto, String nombreFunko, double precio) {
+        this.codigoProducto = codigoProducto;
+        this.nombreFunko = nombreFunko;
+        this.precio = precio;
+    }
 	
 	public Producto(){}
 	
