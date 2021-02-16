@@ -1,5 +1,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true"%>
+
+
 <!DOCTYPE HTML>
+
+<%
+    String nombreUsuario="";
+    HttpSession sesionOK=request.getSession();
+    
+	if(sesionOK.getAttribute("perfil")!=null) {
+		nombreUsuario=(String)sesionOK.getAttribute("nombreUsuario");
+	}
+%>
+
 
 <html>
 
@@ -24,8 +37,19 @@
 			<tr bgcolor="skyblue">
 				<th><a href="index.jsp">Catalogo</a></th>
 				<th><a href="consultarVentas.jsp">Consultar Ventas</a>
-				<th><a href="LoginServlet?accion=cerrar">Cerrar Sesion</a>
-				<th width="200">Iniciar Sesion</th>
+				
+               <%if(sesionOK.getAttribute("perfil")!=null){
+	                    %>
+	                
+	                <th><a href="LoginServlet?accion=cerrar">Cerrar Sesión</a></th>
+	                <%
+	                    }
+	                    %>
+	      		    <%
+	      		    	if(sesionOK.getAttribute("perfil")==null){
+	      		    %>
+	                <th><a href="login.jsp">Iniciar Sesion</a></th>
+	                <% } %>
 			</tr>
 		</table>
 		

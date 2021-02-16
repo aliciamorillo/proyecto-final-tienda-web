@@ -104,40 +104,39 @@
       		
       		<tr bgcolor="skyblue">
       		
-	      		<th>
-	       			<td><a href="index.jsp">Catálogo</a></td>
+	       			<th><a href="index.jsp">Catálogo</a></th>
 	       			 <%
 	                    if(sesionOK.getAttribute("perfil")!=null && sesionOK.getAttribute("perfil").equals("Admin")){
 	                 %>
 	        		
-	        		<td><a href="registrarProducto.jsp">Registrar Producto</a></td>
+	        		<th><a href="registrarProducto.jsp">Registrar Producto</a></th>
 	                <%
 	                    }
 	                        if(sesionOK.getAttribute("perfil")!=null){
 	                    %>
 	                
-	                <td><a href="registrarVenta.jsp">Registrar ventas</a></td>
+	                <th><a href="registrarVenta.jsp">Registrar ventas</a></th>
 	                <%
 	                    }
 	                        if(sesionOK.getAttribute("perfil")!=null && sesionOK.getAttribute("perfil").equals("Admin")){
 	                    %>
 	                
-	                <td><a href="ServletControlador?accion=MostrarVentas">Consultar Ventas</a></td>
+	                <th><a href="ControladorServlet?accion=MostrarVentas">Consultar Ventas</a></th>
 	                <%
 	                    }
 	%>
 	                <%if(sesionOK.getAttribute("perfil")!=null){
 	                    %>
 	                
-	                <td><a href="ServletLogueo?accion=cerrar">Cerrar Sesión</a></td>
+	                <th><a href="LoginServlet?accion=cerrar">Cerrar Sesión</a></th>
 	                <%
 	                    }
 	                    %>
-	      		</th>  
-	      		    
-	      		<th class="nav navbar-nav navbar-right">
-	                <td><a href="login.jsp">Iniciar Sesion</a></td>
-	      		</th>
+	      		    <%
+	      		    	if(sesionOK.getAttribute("perfil")==null){
+	      		    %>
+	                <th><a href="login.jsp">Iniciar Sesion</a></th>
+	                <% } %>
       		
       		<tr>
     

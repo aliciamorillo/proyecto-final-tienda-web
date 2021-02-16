@@ -1,6 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="modelo.*" %>
 <%@page import="java.util.*" %>
+
+<%@page session="true"%>
+	
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE HTML>
@@ -8,6 +11,15 @@
 	<% 
 		Producto producto = ProductoBD.obtenerProducto(Integer.parseInt(request.getParameter("id")));
 	%>
+	
+<%
+    String nombreUsuario="";
+    HttpSession sesionOK=request.getSession();
+    
+	if(sesionOK.getAttribute("perfil")!=null) {
+		nombreUsuario=(String)sesionOK.getAttribute("nombreUsuario");
+	}
+%>
 
 <html>
 
@@ -35,8 +47,21 @@
 		<table border="0" width="800" height="50px" align="center" style="margin-bottom:60px">
 			<tr bgcolor="skyblue">
 				<th><a href="index.jsp">Catalogo</a></th>
-				<th><a href="consultarVentas.jsp">Consultar Ventas</a>
-				<th><a href="LoginServlet?accion=cerrar">Cerrar Sesion</a>
+				<th><a href="consultarVentas.jsp">Consultar Ventas</a></th>
+
+               <%if(sesionOK.getAttribute("perfil")!=null){
+	                    %>
+	                
+	                <th><a href="LoginServlet?accion=cerrar">Cerrar Sesión</a></th>
+	                <%
+	                    }
+	                    %>
+	      		    <%
+	      		    	if(sesionOK.getAttribute("perfil")==null){
+	      		    %>
+	                <th><a href="login.jsp">Iniciar Sesion</a></th>
+	                <% } %>
+	                
 			</tr>
 		</table>
 		

@@ -11,10 +11,10 @@
 	<body>
 
 		<img src="imagenes/cesta.jpg" width="75" title="FINALIZAR COMPRA"
-                onclick=";"/>
+                onclick="window.location.href='registrarVenta.jsp';"/>
 
 		<span style="color:blueviolet; font-size:25px; font-weight:bold">
-		    ${sessionScope.carro.} 
+		    ${sessionScope.carro.cuantosArticulos()} 
 		</span>
 		
 	</body>

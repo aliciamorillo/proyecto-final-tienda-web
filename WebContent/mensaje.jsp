@@ -8,6 +8,7 @@
 if(sesionOK.getAttribute("perfil")!=null)
     nom=(String)sesionOK.getAttribute("nom")+" "+(String)sesionOK.getAttribute("ape");
     %>
+    
 <!DOCTYPE html>
 <html>
     <head>

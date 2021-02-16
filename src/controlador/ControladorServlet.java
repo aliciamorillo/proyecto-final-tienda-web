@@ -57,7 +57,9 @@ public class ControladorServlet extends HttpServlet {
 		venta.setCliente(request.getParameter("txtCliente").toUpperCase());
 		ArrayList<DetalleVenta> detalle = (ArrayList<DetalleVenta>)sesion.getAttribute("carrito");
 		
-		boolean respuesta = VentaBD.insertarVenta(venta, detalle);
+		boolean respuesta = true;
+				
+				//VentaBD.insertarVenta(venta, detalle);
 		
 		double total = Double.parseDouble(request.getParameter("total"));
 		
