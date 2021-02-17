@@ -28,11 +28,13 @@
 		<title>TIENDA ONLINE - FUNKOS</title>
 		
 		<link rel="stylesheet" type="text/css" href="estilos/estilos.css"/>
-		
-		<link rel="stylesheet" href="estilos/bootstrap.min.css">
-		<link rel="stylesheet" href="estilos/nuevosEstilos.css">
-		<link rel="stylesheet" href="estilos/owl.carousel.css">
-		
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+				rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">			
+	
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+				integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
 	</head>
 	
 	<body>
@@ -72,7 +74,7 @@
 			<form method="POST" action="ControladorServlet">
 			
 				<tr>
-					<th rowspan="5"><img class="compraFunko imagen" src="<%=producto.getImagen()%>"/></th>
+					<th rowspan="5"><img  style="margin-right: 20px;" class="compraFunko imagen" src="<%=producto.getImagen()%>"/></th>
 					
 					<th>Codigo Producto: </th>
 					<th><input type="text" name="txtCodigo" value="<%=producto.getCodigoProducto()%>" readonly/></th>
@@ -94,7 +96,10 @@
 					<th><input type="number" name="txtCantidad" min="1" max="5" value="1"/></th>
 				</tr>
 				<tr>
-					<th colspan="3"><input type="submit" value="Añadir" name="btAdd"/></th>
+					<th colspan="3" align="center">
+						<button class="btn btn-outline-primary" style="margin-top: 50px;"
+							type="submit" name="btAdd">Añadir</button>
+					</th>
 				</tr>
 					<input type="hidden" name="accion" value="AddCarrito"/>
 

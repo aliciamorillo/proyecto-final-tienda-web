@@ -24,6 +24,21 @@
 		<link rel="stylesheet" href="estilos/nuevosEstilos.css">
 		<link rel="stylesheet" href="estilos/owl.carousel.css">
 		
+		<script type="text/javascript">
+		
+		function pulsarBoton(){
+			
+			var efectivo = document.getElementById("efectivo");
+			var tarjeta = document.getElementById("tarjeta");
+				
+			efectivo.style.display = "block";
+			tarjeta.style.display = "block";
+				
+			return true;
+		}
+		
+		</script>
+		
 	</head>
 	
 	<body>
@@ -57,11 +72,13 @@
 		
 			<%
 				double total = Double.parseDouble(request.getParameter("total"));
-				out.println("Total a pagar = " + total + "<p>");
+				out.println("Total a pagar = " + String.format("%.2f", total) + " € <p>");
 			%>
 			
+			<h4>PAGO CON PAYPAL: </h4>
+			
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-
+			
 				<input type="hidden" name="cmd" value="_ext-enter" />
 				<input type="hidden" name="redirect_cmd" value="_xclick" />
 				<input type="hidden" name="business" value="alicia.morillo87@gmail.com" />
@@ -74,6 +91,32 @@
 				<input type="image" src="http://www.paypal.com/es_XC/i/btn/x-click-but01.gif" border="0" name="submit" alt="Pagar para completar la compra." />
 				
 			</form>
+			
+			<br/>
+			
+			<h4>OTRAS FORMAS DE PAGO: </h4>
+			
+			<button type="button" class="estiloBoton"
+                           onclick="pulsarBoton()">PAGO EN EFECTIVO: </button>
+            
+            <div id="efectivo" style="display:none;">
+            	- Selecciona una fecha de entrega: <input type="date" value="" name="efectivoFecha"/>
+            	<br/>
+            	<button type="button" id="btComprar">Comprar</button>
+            </div>
+                   				
+            <br/><br/>
+                   					
+            <br/><br/>
+            
+            <button type="button" class="estiloBoton" value=""
+                   				onclick="pulsarBoton();">PAGO CON TARJETA: </button>
+                   				
+            <div id="tarjeta" style="display:none;">
+            	aslñjdfñalsjfñlasjkd
+            </div>
+            
+            </div>
 		
 		</h1>
 		

@@ -29,13 +29,9 @@
 	
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
 				integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	
-		<link rel="stylesheet" href="estilos/bootstrap.min.css">
-		<link rel="stylesheet" href="estilos/nuevosEstilos.css">
-		<link rel="stylesheet" href="estilos/owl.carousel.css">
-		
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/flaticon.css"> 
+		<link rel="stylesheet" type="text/css" href="css/flaticon.css"> 
 
 		<script type="text/javascript" src="js/javascript.js"></script>
 		
@@ -81,7 +77,7 @@
 		
 		<br/><br/>
 		
-				<div id="navegador">
+		<div id="navegador">
 			<ul>
 				<li><a href="#Animacion">Animacion</a></li>
 				<li><a href="#Anime">Anime</a></li>
@@ -100,7 +96,7 @@
 		  <i class="fas fa-arrow-circle-up"></i>
 		</a>
 		
-		<table border="0" width="800" height="50px" align="center" style="margin-bottom:60px">
+		<table class="border="1" width="800" height="100px" align="center" style="margin-bottom:60px">
       		
       		<tr bgcolor="skyblue">
       		
