@@ -28,7 +28,7 @@
 		<span style="color:blueviolet; font-size:25px; font-weight:bold">
 		   <%if(sesionOK.getAttribute("perfil")!=null){
                     %>
-           		<td><%out.println("Bienvenido : " + nombreUsuario);%></td>
+           		<td><%out.println("Usuario: " + nombreUsuario);%></td>
                 <%
                     }
                 %>

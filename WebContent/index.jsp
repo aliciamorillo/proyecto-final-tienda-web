@@ -85,6 +85,20 @@
 				<li><a href="#Comic">Comic</a></li>
 				<li><a href="#Disney">Disney</a></li>
 				<li><a href="#Musica">Musica</a></li>
+				
+				<%if(sesionOK.getAttribute("perfil")!=null){
+	                    %>
+				<li><a href="LoginServlet?accion=cerrar">Cerrar Sesión</a></li>
+	                <%
+	                    }
+	                    %>
+	      		    <%
+	      		    	if(sesionOK.getAttribute("perfil")==null){
+	      		    %>
+	                <li><a href="login.jsp">Iniciar Sesion</a></li>
+	                <% } %>
+	                
+	                
 			</ul>
 		</div>
 		
@@ -96,47 +110,6 @@
 		  <i class="fas fa-arrow-circle-up"></i>
 		</a>
 		
-		<table class="border="0" width="800" height="100px" align="center" style="margin-bottom:60px;">
-      		
-      		<tr bgcolor="skyblue">
-      		
-	       			<th><a href="index.jsp">Catálogo</a></th>
-	       			 <%
-	                    if(sesionOK.getAttribute("perfil")!=null && sesionOK.getAttribute("perfil").equals("Admin")){
-	                 %>
-	        		
-	        		<th><a href="registrarProducto.jsp">Registrar Producto</a></th>
-	                <%
-	                    }
-	                        if(sesionOK.getAttribute("perfil")!=null){
-	                    %>
-	                
-	                <th><a href="registrarVenta.jsp">Registrar ventas</a></th>
-	                <%
-	                    }
-	                        if(sesionOK.getAttribute("perfil")!=null && sesionOK.getAttribute("perfil").equals("Admin")){
-	                    %>
-	                
-	                <th><a href="ControladorServlet?accion=MostrarVentas">Consultar Ventas</a></th>
-	                <%
-	                    }
-	%>
-	                <%if(sesionOK.getAttribute("perfil")!=null){
-	                    %>
-	                
-	                <th><a href="LoginServlet?accion=cerrar">Cerrar Sesión</a></th>
-	                <%
-	                    }
-	                    %>
-	      		    <%
-	      		    	if(sesionOK.getAttribute("perfil")==null){
-	      		    %>
-	                <th><a href="login.jsp">Iniciar Sesion</a></th>
-	                <% } %>
-      		
-      		<tr>
-    
-    	</table>
 			
 			<div class="grid-item">
 			

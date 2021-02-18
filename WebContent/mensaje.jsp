@@ -68,5 +68,9 @@ if(sesionOK.getAttribute("perfil")!=null)
         <h3 align="center">
            <a href="index.jsp">Volver a Principal</a>
         </h3>
+        
+    <!-- Pie de pagina -->
+   	<%@include file="/WEB-INF/include/footer.jsp" %>
+   	
     </body>
 </html>

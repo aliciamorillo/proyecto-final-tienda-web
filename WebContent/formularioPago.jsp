@@ -24,6 +24,8 @@
 		<link rel="stylesheet" href="estilos/nuevosEstilos.css">
 		<link rel="stylesheet" href="estilos/owl.carousel.css">
 		
+		<link rel="stylesheet" type="text/css" href="estilos/estilos.css"/>
+		
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
 				rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">			
 	
@@ -59,32 +61,37 @@
 		<!--Cabecera-->
 		<%@include file="/WEB-INF/include/header.jsp" %>
 		
-		<table border="0" width="800" height="50px" align="center" style="margin-bottom:60px">
-			<tr bgcolor="skyblue">
-				<th><a href="index.jsp">Catalogo</a></th>
-				<th><a href="consultarVentas.jsp">Consultar Ventas</a>
-				
-               <%if(sesionOK.getAttribute("perfil")!=null){
+		<nav style="margin-left: 900px;">
+			<jsp:include page="cabecera/carro.jsp"/>
+			&nbsp;&nbsp;&nbsp;
+			<jsp:include page="cabecera/loginIcon.jsp"/>
+		</nav>
+		
+		<div id="navegador" style="margin-top: 10px;">
+			<ul>
+			<li><a href="index.jsp">Catalogo</a></li>
+				<li><a href="consultarVentas.jsp">Consultar Ventas</li>
+				<%if(sesionOK.getAttribute("perfil")!=null){
 	                    %>
-	                
-	                <th><a href="LoginServlet?accion=cerrar">Cerrar Sesión</a></th>
+				<li><a href="LoginServlet?accion=cerrar">Cerrar Sesión</a></li>
 	                <%
 	                    }
 	                    %>
 	      		    <%
 	      		    	if(sesionOK.getAttribute("perfil")==null){
 	      		    %>
-	                <th><a href="login.jsp">Iniciar Sesion</a></th>
+	                <li><a href="login.jsp">Iniciar Sesion</a></li>
 	                <% } %>
-			</tr>
-		</table>
+	                
+			</ul>
+		</div>
 		
 		<h1>
 		
 			<%
 				double total = Double.parseDouble(request.getParameter("total"));
 				out.println("Total a pagar = " + String.format("%.2f", total) + " € <p>");
-			%>
+			%></h1>
 			
 			<br/>
 			
@@ -118,7 +125,7 @@
             	<label>- Selecciona una fecha de entrega:   </label>
             		<input type="date" value="" name="efectivoFecha"/>
             	<br/><br/>
-            	<button type="button" id="btComprar">Confirmar Compra</button>
+            	<button type="button" id="btComprar" onclick="window.location.href='confirmacionCompra.jsp'">Confirmar Compra</button>
             </div>
                    				
             <br/><br/>
@@ -168,7 +175,7 @@
 		                </select>
 		            </div>
 		            <div class="form-group" id="pay-now">
-		                <button type="submit"id="confirm-purchase">Confirmar Compra</button>
+		                <button type="submit"id="confirm-purchase" onclick="window.location.href='confirmacionCompra.jsp'" style="margin-top:10px">Confirmar Compra</button>
 		            </div>
 		        </form>
 		    </div>
@@ -180,6 +187,9 @@
 		</h1>
 		
 		</div>
+		
+	<!-- Pie de pagina -->
+   	<%@include file="/WEB-INF/include/footer.jsp" %>
 	
 	</body>
 	

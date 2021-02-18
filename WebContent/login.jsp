@@ -40,24 +40,31 @@
 		<!--Cabecera-->
 		<%@include file="/WEB-INF/include/header.jsp" %>
 		
-		<table border="0" width="800" height="50px" align="center" style="margin-bottom:60px">
-			<tr bgcolor="skyblue">
-				<th><a href="index.jsp">Catalogo</a></th>
-				<th><a href="consultarVentas.jsp">Consultar Ventas</a>
-               <%if(sesionOK.getAttribute("perfil")!=null){
+		<nav style="margin-left: 900px;">
+			<jsp:include page="cabecera/carro.jsp"/>
+			&nbsp;&nbsp;&nbsp;
+			<jsp:include page="cabecera/loginIcon.jsp"/>
+		</nav>
+		
+		<div id="navegador" style="margin-top: 10px;">
+			<ul>
+			<li><a href="index.jsp">Catalogo</a></li>
+				<li><a href="consultarVentas.jsp">Consultar Ventas</li>
+				<%if(sesionOK.getAttribute("perfil")!=null){
 	                    %>
-	                
-	                <th><a href="LoginServlet?accion=cerrar">Cerrar Sesión</a></th>
+				<li><a href="LoginServlet?accion=cerrar">Cerrar Sesión</a></li>
 	                <%
 	                    }
 	                    %>
 	      		    <%
 	      		    	if(sesionOK.getAttribute("perfil")==null){
 	      		    %>
-	                <th><a href="login.jsp">Iniciar Sesion</a></th>
+	                <li><a href="login.jsp">Iniciar Sesion</a></li>
 	                <% } %>
-			</tr>
-		</table>
+	                
+	                
+			</ul>
+		</div>
 		
 		<h2 align="center">LOGIN USUARIOS</h2>
 		
@@ -90,6 +97,9 @@
 		</h4>
 		
 		</div>
+		
+	<!-- Pie de pagina -->
+   	<%@include file="/WEB-INF/include/footer.jsp" %>
 	
 	</body>
 	
