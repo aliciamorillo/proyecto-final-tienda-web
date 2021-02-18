@@ -96,7 +96,7 @@
 		  <i class="fas fa-arrow-circle-up"></i>
 		</a>
 		
-		<table class="border="1" width="800" height="100px" align="center" style="margin-bottom:60px">
+		<table class="border="0" width="800" height="100px" align="center" style="margin-bottom:60px;">
       		
       		<tr bgcolor="skyblue">
       		

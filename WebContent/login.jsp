@@ -23,6 +23,14 @@
 		<link rel="stylesheet" href="estilos/nuevosEstilos.css">
 		<link rel="stylesheet" href="estilos/owl.carousel.css">
 		
+		<link rel="stylesheet" type="text/css" href="estilos/estilos.css"/>
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+				rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">			
+	
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+				integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		
 	</head>
 	
 	<body>
@@ -53,7 +61,7 @@
 		
 		<h2 align="center">LOGIN USUARIOS</h2>
 		
-		<table border="0" width="300" align="center">
+		<table border="0" width="300" align="center" class="compraFunko">
 			<form action="LoginServlet" method="POST">
 				
 				<input type="hidden" name="accion" value="login"/>
@@ -68,7 +76,7 @@
 	           	</tr>                  
 	           	<tr>
 	               <th colspan="2">
-	               		<input type="submit" name="btn" value="Iniciar Sesion"> 
+	               		<input type="submit" name="btn" value="Iniciar Sesion" class="btn btn-outline-primary"> 
 	               </th>
            		</tr> 
 			</form>

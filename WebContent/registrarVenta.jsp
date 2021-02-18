@@ -29,7 +29,9 @@
 		<link rel="stylesheet" href="estilos/bootstrap.min.css">
 		<link rel="stylesheet" href="estilos/nuevosEstilos.css">
 		<link rel="stylesheet" href="estilos/owl.carousel.css">
-			
+		
+		<link rel="stylesheet" type="text/css" href="estilos/estilos.css"/>
+		
 	</head>
 	
 	<body>
@@ -46,7 +48,7 @@
                <%if(sesionOK.getAttribute("perfil")!=null){
 	                    %>
 	                
-	                <th><a href="ServletLogueo?accion=cerrar">Cerrar Sesión</a></th>
+	                <th><a href="LoginServlet?accion=cerrar">Cerrar Sesión</a></th>
 	                <%
 	                    }
 	                    %>
@@ -64,7 +66,7 @@
 		
 			<input type="hidden" name="accion" value="RegistrarVenta"/>
 			
-			<table border="1" class="table table-striped">
+			<table border="1" class="table table-striped compraFunko">
 				<tr>
 					<th>Cliente</th>
 					<th colspan="4"><input type="text" name="txtCliente" value="Nombre"/></th>
